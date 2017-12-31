@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+table {
+    border-collapse: collapse;
+    margin:auto;
+    width:50%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+.align{
+  text-align: center;
+}
+body{
+
+  font-family: Trebuchet, arial, sans-serif;
+  background: #202228;
+}
+.container{
+  margin: 0 auto;
+width: 100%
+}
+.contain{
+       zoom: 1;
+}

@@ -1,0 +1,17 @@
+<div *ngIf="!toggle" class="boxed">
+  <h2 class="featured faded ">featured movies </h2>
+<ul>
+ <li *ngFor="let movie of (movieList | search:userSearch)" class="col-md-3">
+
+ <div class="">
+
+        <div class="title"><a href="#" [routerLink]="[movie.title]" (click)="changeView(movie)"><strong class="color"><img class="img" src='{{movie.medium_cover_image}}'></strong></a></div>
+        <div class="text">  {{movie.title }} ({{movie.year }})</div>
+ </div>
+
+ </li>
+</ul>
+ <div class="faded">
+  <a href="#">old Entries</a>
+ </div>
+</div>

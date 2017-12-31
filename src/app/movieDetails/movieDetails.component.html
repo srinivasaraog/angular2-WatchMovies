@@ -1,0 +1,28 @@
+
+<div *ngIf="toggle" class="boxed">
+
+  <div class="title_selectedmovie">
+    <h2 class="entry_title">{{item.title}} ({{item.year}}) HDRip Full Movie Watch Online Free</h2>
+
+   <p class="fadeout">Movie type <span *ngFor="let gener of genres" >  {{gener}}</span></p>
+
+
+ </div>
+<hr/>
+  <div>
+          <div class="title"><strong class="color"><img class="img" src='{{item.medium_cover_image}}'></strong></div>
+          <div class="faded">   Directed by:</div>
+          <div class="faded">  Genres :{{item.year }}</div>
+
+          <div class="faded">  Language :{{item.language }}</div>
+          <div class="faded top"><p>  {{item.summary }}</p></div>
+
+  </div>
+  <div class="top">
+     <div>
+
+       <p class="title_movie">{{item.title}} Watch Online (Single Links – HDRip)</p>
+       <a class="path" target="_blank" href="{{item.url}}">{{item.title}} Watch Online – Openload </a>
+     </div>
+  </div>
+</div>
