@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
 userSearch:string;
 movieList_error:boolean=false;
 movieList:any;
-
+toggle:boolean;
 item:any;
 sources:string;
 genres:string;
