@@ -14,10 +14,27 @@ import { HttpModule }    from '@angular/http';
 import {FormatPipe}    from './recent/recent.filter';
 import { RouterModule, Routes } from '@angular/router';
 import {MovieDetailsComponent} from './movieDetails/movieDetails.component';
+import {MovieComponent} from './movieDetails/movieDetails.component';
 const appRoutes: Routes = [
    { path: 'home', component: MainComponent },
    { path: 'home/:id', component: MovieDetailsComponent},
-   { path: '', redirectTo: '/home',pathMatch:'full' }
+   { path: '', redirectTo: '/home',pathMatch:'full' },
+   { path: 'Featured', component: MainComponent },
+   { path: 'Featured/:id', component: MovieDetailsComponent},
+   { path: 'HollyWood', component: MainComponent },
+   { path: 'HollyWood/:id', component: MovieDetailsComponent},
+   { path: 'BollyWood', component: MainComponent },
+   { path: 'BollyWood/:id', component: MovieDetailsComponent},
+   { path: 'Tamil', component: MainComponent },
+   { path: 'Tamil/:id', component: MovieDetailsComponent},
+   { path: 'Telugu', component: MainComponent },
+   { path: 'Telugu/:id', component: MovieDetailsComponent},
+   { path: 'Malayalam', component: MainComponent },
+   { path: 'Malayalam/:id', component: MovieDetailsComponent},
+   { path: 'Dvdrip', component: MainComponent },
+   { path: 'Dvdrip/:id', component: MovieDetailsComponent},
+   { path: 'other', component: MainComponent },
+   { path: 'other/:id', component: MovieDetailsComponent},
 
 
 ];

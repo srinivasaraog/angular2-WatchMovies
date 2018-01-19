@@ -25,24 +25,24 @@ toggle:boolean;
 item:any;
 sources:string;
 genres:string;
+title:string;
 
- constructor(private _appService: appService){}
+ constructor(private _appService: appService,private router:Router){}
  changeView(movie){
    this._appService.setItem(movie);
    this._appService.setToggle(true);
  }
 
  ngOnInit() {
-   this._appService.getApp().subscribe(
-     data => { this.movieList = data.data.movies},
+   this.title=this.router.url.replace('/',"")
+   this._appService.getApp(this.title).subscribe(
+     data => { this.movieList = data.results},
      err => { this.movieList_error = true }
       );
 
-  this._appService.cast.subscribe(
+   this._appService.cast.subscribe(
        movie=> {this.userSearch = movie,this.toggle=false}
      );
-
-
 
  }
 
