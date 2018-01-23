@@ -18,7 +18,7 @@ id:string;
 
  constructor(private _appService:appService,private router:Router){}
  ngOnInit(){
-
+ 
    this._appService.getApp(this.title,this.id).subscribe(
      data => { this.recentMovies = data.results},
      err => { this.recentMovies_error = true }
