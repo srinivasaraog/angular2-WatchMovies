@@ -14,11 +14,12 @@ recentMovies:string;
 recentMovies_error:boolean=false;
 currentYear:number;
 title:string;
+id:string;
 
  constructor(private _appService:appService,private router:Router){}
  ngOnInit(){
-   
-   this._appService.getApp().subscribe(
+
+   this._appService.getApp(this.title,this.id).subscribe(
      data => { this.recentMovies = data.results},
      err => { this.recentMovies_error = true }
       );

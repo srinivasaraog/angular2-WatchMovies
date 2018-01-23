@@ -46,13 +46,7 @@ export class appService {
 
   }
   ngOnInit(){
-    this.id=this.route.snapshot.params['id'];
-    console.log("this.id"+this.id)
-    this.router.events.subscribe(value => {
 
-        console.log(value.snapshot.params['id'])
-
-  });
   }
   getApp(title,id) {
     this.title = title;
@@ -78,10 +72,10 @@ export class appService {
         const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=hi&page=${id}`;
 
       return movieService(url);
-    } else if this.title.indexOf("Tamil")=== 0 ) {
+    } else if (this.title.indexOf("Tamil")=== 0 ) {
         const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ta&page=${id}`;
       return movieService(url);
-    } else if this.title.indexOf("Telugu")=== 0) {
+    } else if (this.title.indexOf("Telugu")=== 0) {
         const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=te&page=${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Malayalam")=== 0) {
@@ -124,7 +118,7 @@ export class appService {
     return this.toggle;
   }
   public setpageNumber(pageNumber) {
-    this.pageNumber = parseInt(pageNumber,10)+1;
+    this.pageNumber =(parseInt(pageNumber,10)+1).toString() ;
   }
   public getPageNumber() {
     return this.pageNumber;
