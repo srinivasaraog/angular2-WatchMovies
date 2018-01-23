@@ -11,13 +11,13 @@ export class FormatPipe implements PipeTransform {
           const movieFilter=(currentYear)=>{
               return  value.filter((movie) => {
 
-                        return  movie.year==currentYear;
+                        return  movie.release_date.substring(0,4)==currentYear;
 
 
               });
             }
             let current=  movieFilter(currentYear);
-        
+
         if (name !== undefined && currentYear!=='') {
 
             // filter users, users which match and return true will be kept, false will be filtered out

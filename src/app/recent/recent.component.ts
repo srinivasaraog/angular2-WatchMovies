@@ -17,8 +17,8 @@ title:string;
 
  constructor(private _appService:appService,private router:Router){}
  ngOnInit(){
-   this.title=this.router.url.replace('/',"")
-   this._appService.getApp(this.title).subscribe(
+   
+   this._appService.getApp().subscribe(
      data => { this.recentMovies = data.results},
      err => { this.recentMovies_error = true }
       );

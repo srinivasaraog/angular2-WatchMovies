@@ -5,13 +5,16 @@
 
  <div class="">
 
-        <div  class="title"><a href="#" [routerLink]="[movie.title]" (click)="changeView(movie)"><strong class="color"><img class="img" src='https://image.tmdb.org/t/p/w600/{{movie.poster_path}}'></strong></a></div>
+        <div  class="title"><a href="#" [routerLink]="['',movie.title]" (click)="movieDetails(movie)"><strong class="color"><img class="img" src='https://image.tmdb.org/t/p/w600/{{movie.poster_path}}'></strong></a></div>
         <div class="text">  {{movie.title }} ({{movie.release_date }})</div>
  </div>
 
  </li>
 </ul>
  <div class="faded">
-  <a href="#">old Entries</a>
+   <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]" routerLinkActive="active" (click)="sortMovieList(movie)">Previous</a>
+   <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" routerLinkActive="active"  (click)="sortMovieList(movie)">Next</a>
+
  </div>
+
 </div>

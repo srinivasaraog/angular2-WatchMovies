@@ -17,12 +17,14 @@
           <div class="faded">  Language :{{item.language }}</div>
           <div class="faded top"><p>  {{item.overview }}</p></div>
 
+
   </div>
   <div class="top">
-     <div>
+     <div *ngFor="let video of videos">
 
-       <p class="title_movie">{{item.title}} Watch Online (Single Links – HDRip)</p>
-       <a class="path" target="_blank" href="{{item.url}}">{{item.title}} Watch Online – Openload </a>
+       <p class="title_movie">{{video.name}} Watch Online</p>
+
+       <a class="path" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">{{item.title}} Watch Online – {{video.site}} </a>
      </div>
   </div>
 </div>

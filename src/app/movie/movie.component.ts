@@ -1,7 +1,8 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,OnDestroy } from '@angular/core';
 import { appService } from '../app.service';
 import {SearchPipe}    from '../app.objectfilter';
-import { Router } from '@angular/router';
+
+import { Router, ActivatedRoute, Params, RoutesRecognized,ActivationStart } from '@angular/router';
 import {MovieDetailsComponent} from '../movieDetails/movieDetails.component';
 
 
@@ -16,6 +17,7 @@ import {MovieDetailsComponent} from '../movieDetails/movieDetails.component';
 
 
 })
+
 export class MovieComponent implements OnInit {
 
 userSearch:string;
@@ -26,16 +28,42 @@ item:any;
 sources:string;
 genres:string;
 title:string;
-
- constructor(private _appService: appService,private router:Router){}
- changeView(movie){
+pageNumber:string="1";
+id:string="";
+params:any;
+ constructor(private route: ActivatedRoute, private _appService: appService,private router:Router){}
+ movieDetails(movie){
    this._appService.setItem(movie);
    this._appService.setToggle(true);
+
+ }
+ sortMovieList(){
+
+   this._appService.setpageNumber(this.pageNumber);
  }
 
+
+
+
  ngOnInit() {
-   this.title=this.router.url.replace('/',"")
-   this._appService.getApp(this.title).subscribe(
+   this.title=this.router.url.replace('/',"");
+
+
+    this.params=  this.router.events.subscribe(value => {
+      if(value instanceof ActivationStart){
+        this.pageNumber=this._appService.pageNumber;
+         this.title=this.router.url.replace('/',"");
+        this.id=value.snapshot.params['id'];
+        this._appService.getApp(this.title,this.id).subscribe(
+         data => { this.movieList = data.results},
+         err => { this.movieList_error = true }
+          );
+      }
+
+
+
+  });
+    this._appService.getApp(this.title,this.id).subscribe(
      data => { this.movieList = data.results},
      err => { this.movieList_error = true }
       );
@@ -45,5 +73,9 @@ title:string;
      );
 
  }
+ ngOnDestroy() {
+     console.log("unsubscribed params",this.params);
+  this.params.unsubscribe();
 
+ }
  }

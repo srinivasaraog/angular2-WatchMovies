@@ -3,11 +3,9 @@ import {
 } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Router } from '@angular/router';
-
 import { Observable } from 'rxjs/Rx';
-
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Router, ActivatedRoute, Params, RoutesRecognized  } from '@angular/router';
 
 @Injectable()
 export class appService {
@@ -15,7 +13,10 @@ export class appService {
   moviename: string;
   item: any;
   toggle: boolean = false;
-  title:string;
+  title: string;
+  url: string;
+  id:string;
+  pageNumber:string="1";
 
 
   /* About behaviour vs regular subject with observable
@@ -40,37 +41,67 @@ export class appService {
 
   private movie = new BehaviorSubject<string>('');
   cast = this.movie.asObservable();
-  constructor(private http: Http,private router:Router) {
+  constructor(private route: ActivatedRoute,private http: Http, private router: Router) {
 
 
   }
-  getApp(title) {
-    this.title=title;
+  ngOnInit(){
+    this.id=this.route.snapshot.params['id'];
+    console.log("this.id"+this.id)
+    this.router.events.subscribe(value => {
+
+        console.log(value.snapshot.params['id'])
+
+  });
+  }
+  getApp(title,id) {
+    this.title = title;
+
+
     const movieService = (url) => {
       console.log(this.title)
       return this.http.get(url)
         .map((res: Response) => res.json())
     }
-    if (this.title==="home") {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en");
-    } else if (this.title==="Featured") {
-      return movieService("https://api.themoviedb.org/3/movie/popular?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&language=en");
-    } else if (this.title==="HollyWood") {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en");
-    } else if (this.title==="BollyWood") {
-      console.log("BollyWood")
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=hi");
-    }else if (this.title==="Tamil") {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ta");
-    }  else if (this.title==="Telugu") {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=te");
-    } else if (this.title==="Malayalam") {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ml");
-    } else if (this.title==="other") {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en");
+    if(this.title){
+    if (this.title.indexOf("home")===0) {
+
+      const url=`https://api.themoviedb.org/3/movie/now_playing?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&page=${id}`;
+      return movieService(url);
+    } else if (this.title.indexOf("Featured")=== 0) {
+        const url=`https://api.themoviedb.org/3/movie/upcoming?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&language=en&page=${id}`;
+      return movieService(url);
+    } else if (this.title.indexOf("HollyWood")=== 0) {
+        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+      return movieService(url);
+    } else if (this.title.indexOf("BollyWood")=== 0) {
+        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=hi&page=${id}`;
+
+      return movieService(url);
+    } else if this.title.indexOf("Tamil")=== 0 ) {
+        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ta&page=${id}`;
+      return movieService(url);
+    } else if this.title.indexOf("Telugu")=== 0) {
+        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=te&page=${id}`;
+      return movieService(url);
+    } else if (this.title.indexOf("Malayalam")=== 0) {
+        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ml&page=${id}`;
+      return movieService(url);
+    } else if (this.title.indexOf("other")=== 0 ) {
+        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+      return movieService(url);
+    } else if (this.title.indexOf("Geners")=== 0 ) {
+        const url=`http://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+      return movieService(url);
     } else {
-      return movieService("https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en");
+        const url=`http://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+      return movieService(url);
     }
+  }else{
+    const url=`http://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+  return movieService(url);
+  }
+
 
   }
 
@@ -92,6 +123,11 @@ export class appService {
   public getToggle() {
     return this.toggle;
   }
-
+  public setpageNumber(pageNumber) {
+    this.pageNumber = parseInt(pageNumber,10)+1;
+  }
+  public getPageNumber() {
+    return this.pageNumber;
+  }
 
 }

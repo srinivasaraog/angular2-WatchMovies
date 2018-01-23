@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms'
 import { appService } from './app.service';
 import { AppComponent } from './app.component';
+
 import {SearchComponent} from './search/search.component';
 import {HeaderComponent } from './header/header.component';
 import {NavComponent} from './nav/nav.component';
@@ -14,27 +15,72 @@ import { HttpModule }    from '@angular/http';
 import {FormatPipe}    from './recent/recent.filter';
 import { RouterModule, Routes } from '@angular/router';
 import {MovieDetailsComponent} from './movieDetails/movieDetails.component';
-import {MovieComponent} from './movieDetails/movieDetails.component';
-const appRoutes: Routes = [
-   { path: 'home', component: MainComponent },
-   { path: 'home/:id', component: MovieDetailsComponent},
-   { path: '', redirectTo: '/home',pathMatch:'full' },
-   { path: 'Featured', component: MainComponent },
-   { path: 'Featured/:id', component: MovieDetailsComponent},
-   { path: 'HollyWood', component: MainComponent },
-   { path: 'HollyWood/:id', component: MovieDetailsComponent},
-   { path: 'BollyWood', component: MainComponent },
-   { path: 'BollyWood/:id', component: MovieDetailsComponent},
-   { path: 'Tamil', component: MainComponent },
-   { path: 'Tamil/:id', component: MovieDetailsComponent},
-   { path: 'Telugu', component: MainComponent },
-   { path: 'Telugu/:id', component: MovieDetailsComponent},
-   { path: 'Malayalam', component: MainComponent },
-   { path: 'Malayalam/:id', component: MovieDetailsComponent},
-   { path: 'Dvdrip', component: MainComponent },
-   { path: 'Dvdrip/:id', component: MovieDetailsComponent},
-   { path: 'other', component: MainComponent },
-   { path: 'other/:id', component: MovieDetailsComponent},
+
+const appRoutes: Routes = [ 
+   { path: 'home', component: MainComponent,
+     children:[
+        {path: 'page/:id', component: MainComponent},
+       {path: '', redirectTo: '/home',pathMatch:'full' }
+
+
+     ]
+
+    },
+
+
+   { path: 'Featured', component: MainComponent,
+    children:[
+     {path: 'page/:id', component: MainComponent}
+
+    ]
+    },
+   { path: 'HollyWood', component: MainComponent,
+     children:[
+     {path: 'page/:id', component: MainComponent}
+
+   ]
+    },
+   { path: 'BollyWood', component: MainComponent,
+     children:[
+     {path: 'page/:id', component: MainComponent}
+
+   ]
+    },
+   { path: 'Tamil', component: MainComponent,
+     children:[
+     {path: 'page/:id', component: MainComponent}
+
+   ]
+    },
+   { path: 'Telugu', component: MainComponent,
+    children:[
+     {path: 'page/:id', component: MainComponent}
+
+   ]
+    },
+   { path: 'Malayalam', component: MainComponent,
+    children:[
+     {path: 'page/:id', component: MainComponent}
+   ]
+    },
+   { path: 'Dvdrip', component: MainComponent,
+    children:[
+     {path: 'page/:id', component: MainComponent}
+   ]
+    },
+   { path: 'Geners', component: MainComponent,
+   children:[
+     {path: 'page/:id', component: MainComponent}
+   ]
+    },
+   { path: 'other', component: MainComponent,
+   children:[
+     {path: 'page/:id', component: MainComponent}
+   ]
+     },
+   { path: ':id',component: MovieDetailsComponent},
+   { path: '', redirectTo: '/home',pathMatch:'full' }
+
 
 
 ];

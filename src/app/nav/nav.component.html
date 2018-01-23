@@ -1,7 +1,7 @@
 <div class="switch box col-md-12 bottom">
 <ul class="menu" >
 
-  <li title="home" class="menu_item"> <a href="#" [routerLink]="['/home']">Home</a> </li>
+  <li title="home" class="menu_item"> <a href="#" [routerLink]="['/home']" routerLinkActive="active">Home</a> </li>
   <li class="menu_item">
    <a href="#" [routerLink]="['/Featured']">Featured</a>
   </li>
@@ -32,12 +32,12 @@
  </li>
  <li class="menu_item">
 
-  <a href="#" [routerLink]="['/Malayalam']">Malayalam</a>
+  <a href="#" [routerLink]="['/Malayalam']" routerLinkActive="active">Malayalam</a>
 
  </li>
  <li class="menu_item">
 
-  <a href="#" [routerLink]="['/other']">other</a>
+  <a href="#" [routerLink]="['/other']" routerLinkActive="active">other</a>
 
  </li>
   <li class="menu_item">
@@ -58,4 +58,3 @@
 
 
 </div>
-<router-outlet></router-outlet>

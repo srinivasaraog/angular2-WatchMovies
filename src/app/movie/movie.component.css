@@ -89,3 +89,9 @@ hr {
     color: #fff;
     background-color: #333; /* Modern Browsers */
 }
+.pagination_left{
+  text-align: left;
+}
+.pagination_right{
+  text-align: right;
+}
