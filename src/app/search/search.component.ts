@@ -10,6 +10,7 @@ import { appService } from '../app.service';
 
 })
  export class SearchComponent implements OnInit{
+   movie:string;
 
 constructor(private _appService: appService){
 
