@@ -85,17 +85,17 @@ export class appService {
         const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Geners")=== 0 ) {
-        const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-        //const url=`http://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+      //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+        const url=`https://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
       return movieService(url);
     } else {
-        const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-      //  const url=`http://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+      //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+       const url=`https://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
       return movieService(url);
     }
   }else{
-  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-    //const url=`http://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+  //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+    const url=`https://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
   return movieService(url);
   }
 

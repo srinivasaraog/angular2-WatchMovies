@@ -44,7 +44,7 @@ url:string;
 
 
      if(this.item){
-      this.url=   `http://api.themoviedb.org/3/movie/${this.item.id}/videos?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8`;
+      this.url=   `https://api.themoviedb.org/3/movie/${this.item.id}/videos?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8`;
      }
     this.http.get(this.url)
     .map((res: Response) => res.json())
