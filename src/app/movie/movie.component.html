@@ -11,9 +11,10 @@
 
  </li>
 </ul>
- <div class="faded flexContainer">
-   <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]" routerLinkActive="active" (click)="sortMovieList(movie)"><<Previous</a>
-   <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" routerLinkActive="active"  (click)="sortMovieList(movie)">Next>></a>
+ <div class="faded flex-container">
+   <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]"  (click)="sortIncMovieList()"><<Previous</a>
+   <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" *ngIf="pageNumber > 1"  (click)="sortDecMovieList()">Next>></a>
+
 
  </div>
 

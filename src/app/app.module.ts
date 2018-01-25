@@ -16,13 +16,11 @@ import {FormatPipe}    from './recent/recent.filter';
 import { RouterModule, Routes } from '@angular/router';
 import {MovieDetailsComponent} from './movieDetails/movieDetails.component';
 
-const appRoutes: Routes = [ 
+const appRoutes: Routes = [
    { path: 'home', component: MainComponent,
      children:[
-        {path: 'page/:id', component: MainComponent},
+       {path: 'page/:id', component: MainComponent},
        {path: '', redirectTo: '/home',pathMatch:'full' }
-
-
      ]
 
     },

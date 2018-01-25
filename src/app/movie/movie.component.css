@@ -89,13 +89,13 @@ hr {
     color: #fff;
     background-color: #333; /* Modern Browsers */
 }
+.flex-container{
+  display: flex;
+  top:10px;
+}
 .pagination_left{
   margin-right: auto;
 }
 .pagination_right{
   margin-left: auto;
-}
-.flexContainer{
-
-  display: flex;
 }
