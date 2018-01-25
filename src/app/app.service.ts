@@ -16,7 +16,7 @@ export class appService {
   title: string;
   url: string;
   id:string;
-  pageNumber:string="1";
+  pageNumber:any=1;
 
 
   /* About behaviour vs regular subject with observable
@@ -118,9 +118,15 @@ export class appService {
     return this.toggle;
   }
   public setpageNumber(pageNumber) {
-    this.pageNumber =(parseInt(pageNumber,10)+1).toString() ;
+    this.pageNumber =parseInt(pageNumber,10)+1 ;
   }
   public getPageNumber() {
+    return this.pageNumber;
+  }
+  public setDecpageNumber(pageNumber) {
+    this.pageNumber =parseInt(pageNumber,10)-1 ;
+  }
+  public getDecPageNumber() {
     return this.pageNumber;
   }
 
