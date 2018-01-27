@@ -1,21 +1,20 @@
 <div *ngIf="!toggle" class="boxed">
   <h2 class="featured faded ">{{title}} </h2>
 <ul>
- <li *ngFor="let movie of (movieList | search:userSearch)" class="col-md-3">
+ <li *ngFor="let movie of (movieList | search:userSearch)" class="col-md-3" >
 
  <div class="">
 
-        <div  class="title"><a href="#" [routerLink]="['',movie.title]" (click)="movieDetails(movie)"><strong class="color"><img class="img" src='https://image.tmdb.org/t/p/w600/{{movie.poster_path}}'></strong></a></div>
-        <div class="text">  {{movie.title }} ({{movie.release_date }})</div>
+    <div  class="title"><a href="#" [routerLink]="['',movie.title]" (click)="movieDetails(movie)"><strong class="color"><img *ngIf="movie.poster_path !==null" class="img" src='https://image.tmdb.org/t/p/w300/{{movie.poster_path}}'></strong></a></div>
+     <div class="text">  {{movie.title }} ({{movie.release_date }})</div>
  </div>
 
  </li>
 </ul>
- <div class="faded flex-container">
-   <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]"  (click)="sortIncMovieList()"><<Previous</a>
-   <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" *ngIf="pageNumber > 1"  (click)="sortDecMovieList()">Next>></a>
 
-
- </div>
+<div class="faded flex-container col-md-12">
+  <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]"  (click)="sortIncMovieList()"><<Previous</a>
+  <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" *ngIf="pageNumber > 1"  (click)="sortDecMovieList()">Next>></a>
+</div>
 
 </div>
