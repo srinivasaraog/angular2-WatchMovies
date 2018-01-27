@@ -19,8 +19,8 @@ import {MovieDetailsComponent} from './movieDetails/movieDetails.component';
 const appRoutes: Routes = [
    { path: 'home', component: MainComponent,
      children:[
-       {path: 'page/:id', component: MainComponent},
-       {path: '', redirectTo: '/home',pathMatch:'full' }
+       {path: 'page/:id', component: MainComponent}
+
      ]
 
     },

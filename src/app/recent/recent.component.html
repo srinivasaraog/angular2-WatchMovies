@@ -6,7 +6,7 @@
    <ul>
      <li *ngFor="let movie of (recentMovies | format:currentYear)">
        <div>
-       <a href="{{movie.url}}" target="_blank" class="faded">{{movie.title}}</a>
+       <a href="#" [routerLink]="['',movie.title]"   class="faded">{{movie.title}}</a>
      </div>
      </li>
    </ul>
