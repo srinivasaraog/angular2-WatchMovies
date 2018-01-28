@@ -21,7 +21,7 @@ export class FormatPipe implements PipeTransform {
         if (name !== undefined && currentYear!=='') {
 
             // filter users, users which match and return true will be kept, false will be filtered out
-            return  current.length>0 ? current:movieFilter(currentYear-1);
+            return movieFilter(currentYear-1);
 
 
         }

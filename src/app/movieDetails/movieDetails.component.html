@@ -10,7 +10,12 @@
  </div>
 <hr/>
   <div>
-          <div class="title" ><strong class="color"><img class="img" src='https://image.tmdb.org/t/p/w300/{{item.poster_path}}'></strong></div>
+          <div class="title" >
+            <strong class="color">
+              <img *ngIf="item.poster_path !==null" class="img" src='https://image.tmdb.org/t/p/w300/{{item.poster_path}}'>
+              <img *ngIf="item.poster_path ===null" class="img" src='{{posterNotAvailable}}'>
+            </strong>
+          </div>
           <div class="faded">   Directed by:</div>
           <div class="faded">  Genres :{{item.year }}</div>
 

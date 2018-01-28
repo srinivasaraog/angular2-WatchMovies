@@ -33,7 +33,7 @@ genres:any;
 videos:any;
 url:string;
 
-
+public posterNotAvailable = require("../../posterNotAvailable.jpg");
  constructor(private _appService: appService,private http: Http,private router:Router){}
 
 
