@@ -3,7 +3,6 @@ import {
 } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { Observable } from 'rxjs/Rx';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Router, ActivatedRoute, Params, RoutesRecognized  } from '@angular/router';
 
@@ -53,47 +52,53 @@ export class appService {
 
 
     const movieService = (url) => {
+     
       console.log(this.title)
       return this.http.get(url)
         .map((res: Response) => res.json())
     }
     if(this.title){
     if (this.title.indexOf("home")===0) {
-
-      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
+       this.setValue('');
+      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
-    } else if (this.title.indexOf("Featured")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
+    } else if (this.title.indexOf("Featured")=== 0) {      
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("HollyWood")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/HollyWood&`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/HollyWood/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("BollyWood")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/BollyWood`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/BollyWood/page/${id}`;
 
       return movieService(url);
     } else if (this.title.indexOf("Tamil")=== 0 ) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Tamil`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Tamil/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Telugu")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Telugu`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Telugu/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Malayalam")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Malayalam`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Malayalam/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("other")=== 0 ) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/other`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/other/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Geners")=== 0 ) {
       //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Geners`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Geners/page/${id}`;
+      return movieService(url);
+    }else if(this.title.indexOf("Search")=== 0 ){
+      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
     } else {
+      
       //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
       return movieService(url);
     }
   }else{
+   
   //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
     const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
   return movieService(url);

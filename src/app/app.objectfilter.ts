@@ -12,7 +12,7 @@ export class SearchPipe implements PipeTransform {
             // filter users, users which match and return true will be kept, false will be filtered out
             return value.filter((movie) => {
 
-                      return (movie.title.toLowerCase().indexOf(name.toLowerCase()) > -1 );
+                      return (movie.movieName.toLowerCase().indexOf(name.toLowerCase()) > -1 );
 
             });
         }
@@ -24,7 +24,7 @@ export class SearchPipe implements PipeTransform {
 
 @Pipe({name: 'safeHtml'})
 @Injectable()
-export class Safe {
+export class Safe implements PipeTransform{
   constructor(private sanitizer:DomSanitizer){}
 
   transform(value: any, args?: any): any {

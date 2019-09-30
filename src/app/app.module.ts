@@ -10,7 +10,7 @@ import {NavComponent} from './nav/nav.component';
 import {RecentComponent} from './recent/recent.component';
 import {MainComponent} from './main/main.component';
 import {MovieComponent} from './movie/movie.component';
-import {SearchPipe}    from './app.objectfilter';
+import {SearchPipe, Safe}    from './app.objectfilter';
 import { HttpModule }    from '@angular/http';
 import {FormatPipe}    from './recent/recent.filter';
 import { RouterModule, Routes } from '@angular/router';
@@ -76,6 +76,9 @@ const appRoutes: Routes = [
      {path: 'page/:id', component: MainComponent}
    ]
      },
+     { path: 'Search', component: MainComponent,
+    
+    },
    { path: ':id',component: MovieDetailsComponent},
    { path: '', redirectTo: '/home',pathMatch:'full' }
 
@@ -86,7 +89,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,SearchComponent,NavComponent,MainComponent,RecentComponent,SearchPipe,FormatPipe,
+    AppComponent,HeaderComponent,SearchComponent,NavComponent,MainComponent,RecentComponent,SearchPipe,FormatPipe,Safe
     MovieComponent,MovieDetailsComponent
   ],
   imports: [

@@ -1,6 +1,5 @@
 import { Component,OnInit } from '@angular/core';
 import { appService } from '../app.service';
-import {Safe}    from '../app.objectfilter';
 import { Router } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
