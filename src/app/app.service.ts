@@ -60,42 +60,42 @@ export class appService {
     if(this.title){
     if (this.title.indexOf("home")===0) {
 
-      const url=`https://api.themoviedb.org/3/movie/now_playing?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&page=${id}`;
+      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
       return movieService(url);
     } else if (this.title.indexOf("Featured")=== 0) {
-        const url=`https://api.themoviedb.org/3/movie/upcoming?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&language=en&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
       return movieService(url);
     } else if (this.title.indexOf("HollyWood")=== 0) {
-        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/HollyWood&`;
       return movieService(url);
     } else if (this.title.indexOf("BollyWood")=== 0) {
-        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=hi&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/BollyWood`;
 
       return movieService(url);
     } else if (this.title.indexOf("Tamil")=== 0 ) {
-        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ta&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Tamil`;
       return movieService(url);
     } else if (this.title.indexOf("Telugu")=== 0) {
-        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=te&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Telugu`;
       return movieService(url);
     } else if (this.title.indexOf("Malayalam")=== 0) {
-        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=ml&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Malayalam`;
       return movieService(url);
     } else if (this.title.indexOf("other")=== 0 ) {
-        const url=`https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/other`;
       return movieService(url);
     } else if (this.title.indexOf("Geners")=== 0 ) {
       //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-        const url=`https://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Geners`;
       return movieService(url);
     } else {
       //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-       const url=`https://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+       const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
       return movieService(url);
     }
   }else{
   //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-    const url=`https://api.themoviedb.org/3/genre/10751/movies?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&include_all_movies=true&include_adult=true`;
+    const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
   return movieService(url);
   }
 

@@ -1,14 +1,10 @@
 import { Component,OnInit } from '@angular/core';
 import { appService } from '../app.service';
-import {SearchPipe}    from '../app.objectfilter';
+import {Safe}    from '../app.objectfilter';
 import { Router } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-
-import { Observable } from 'rxjs/Rx';
-
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 
@@ -32,6 +28,7 @@ torrents:any;
 genres:any;
 videos:any;
 url:string;
+data:any;
 
 public posterNotAvailable = require("../../posterNotAvailable.jpg");
  constructor(private _appService: appService,private http: Http,private router:Router){}
@@ -41,18 +38,25 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
  ngOnInit() {
      this.item=this._appService.item;
      this.toggle=this._appService.toggle;
-
+  
 
      if(this.item){
-      this.url=   `https://api.themoviedb.org/3/movie/${this.item.id}/videos?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8`;
+    this.videos = this.item.movieLinks.split(';').map(link => 
+        link
+      );
+      console.log("links",this.videos);
+      this.url=   `http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
      }
     this.http.get(this.url)
     .map((res: Response) => res.json())
     .subscribe(
-      data => { this.videos = data.results },
+      data => { this.data = data.payload ? data.payload.filter((movie)=>{
+                                  return  (movie.movieName === this.item.movieName)
+                                  }):'';
+    },
       err => { this.movieList_error = true }
        );
-  console.log(this.videos);
+    
     this._appService.cast.subscribe(
          movie=> {!this._appService.toggle?this.router.navigate(['/home']):null}
        );

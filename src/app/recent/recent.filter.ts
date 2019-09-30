@@ -11,7 +11,7 @@ export class FormatPipe implements PipeTransform {
           const movieFilter=(currentYear)=>{
               return  value.filter((movie) => {
 
-                        return  movie.release_date.substring(0,4)==currentYear;
+                        return  null//movie.release_date.substring(0,4)==currentYear;
 
 
               });

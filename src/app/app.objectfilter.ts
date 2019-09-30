@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform, Injectable} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Pipe({
     name: 'search',
@@ -18,4 +19,17 @@ export class SearchPipe implements PipeTransform {
 
         return value;
     }
+}
+
+
+@Pipe({name: 'safeHtml'})
+@Injectable()
+export class Safe {
+  constructor(private sanitizer:DomSanitizer){}
+
+  transform(value: any, args?: any): any {
+    return this.sanitizer.bypassSecurityTrustHtml(value);
+    // return this.sanitizer.bypassSecurityTrustStyle(style);
+    // return this.sanitizer.bypassSecurityTrustXxx(style); 
+  }
 }

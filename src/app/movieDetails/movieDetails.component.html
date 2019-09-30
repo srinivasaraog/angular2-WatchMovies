@@ -2,7 +2,7 @@
 <div *ngIf="toggle" class="boxed">
 
   <div class="title_selectedmovie">
-    <h2 class="entry_title">{{item.title}} ({{item.year}}) HDRip Full Movie Watch Online Free</h2>
+    <h2 class="entry_title">{{data[0].movieName}} HDRip Full Movie Watch Online Free</h2>
 
    <p class="fadeout">Movie type <span *ngFor="let gener of genres" >  {{gener}}</span></p>
 
@@ -12,24 +12,24 @@
   <div>
           <div class="title" >
             <strong class="color">
-              <img *ngIf="item.poster_path !==null" class="img" src='https://image.tmdb.org/t/p/w300/{{item.poster_path}}'>
-              <img *ngIf="item.poster_path ===null" class="img" src='{{posterNotAvailable}}'>
+              <img *ngIf="item.movieImageURL !==null" class="img" src='{{data[0].movieImageURL}}'>
+              <img *ngIf="item.movieImageURL ===null" class="img" src='{{posterNotAvailable}}'>
             </strong>
           </div>
-          <div class="faded">   Directed by:</div>
-          <div class="faded">  Genres :{{item.year }}</div>
+          
+          <div innerHTML="{{data[0].movieDescription }}"></div>
+        
+          
 
-          <div class="faded">  Language :{{item.language }}</div>
-          <div class="faded top"><p>  {{item.overview }}</p></div>
 
 
   </div>
   <div class="top">
      <div *ngFor="let video of videos">
 
-       <p class="title_movie">{{video.name}} Watch Online</p>
+       <p class="title_movie">{{video}} Watch Online</p>
 
-       <a class="path" target="_blank" href="https://www.youtube.com/watch?v={{video.key}}">{{item.title}} Watch Online – {{video.site}} </a>
+       <a class="path" target="_blank" href="{{video}}">{{item.title}} Watch Online – {{video.site}} </a>
      </div>
   </div>
 </div>

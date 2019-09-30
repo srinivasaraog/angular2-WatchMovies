@@ -10,6 +10,7 @@ import {MovieDetailsComponent} from '../movieDetails/movieDetails.component';
 
 
 
+
 @Component({
   selector: 'movie',
   templateUrl: './movie.component.html',
@@ -39,7 +40,6 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
 
  }
  sortIncMovieList(movie){
-
    this._appService.setpageNumber(this.pageNumber);
    this.pageNumber=this._appService.pageNumber;
    this.movieService();
@@ -47,7 +47,7 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
  movieService=()=>{
   this.title=this.router.url.replace('/',"");
   this._appService.getApp(this.title,this.pageNumber).subscribe(
-   data => { this.movieList = data.results},
+   data => { this.movieList = data.payload},
    err => { this.movieList_error = true }
     );
 }
@@ -64,7 +64,6 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
     this._appService.cast.subscribe(
        movie=> {this.userSearch = movie,this.toggle=false}
      );
-
  }
 
  }

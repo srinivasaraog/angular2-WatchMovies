@@ -20,7 +20,7 @@ id:string;
  ngOnInit(){
  
    this._appService.getApp(this.title,this.id).subscribe(
-     data => { this.recentMovies = data.results},
+     data => { this.recentMovies = data.payload},
      err => { this.recentMovies_error = true }
       );
     let d=new Date();
