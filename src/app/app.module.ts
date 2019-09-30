@@ -89,7 +89,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,SearchComponent,NavComponent,MainComponent,RecentComponent,SearchPipe,FormatPipe,Safe
+    AppComponent,HeaderComponent,SearchComponent,NavComponent,MainComponent,RecentComponent,SearchPipe,FormatPipe,Safe,
     MovieComponent,MovieDetailsComponent
   ],
   imports: [
