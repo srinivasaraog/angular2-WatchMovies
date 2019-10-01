@@ -30,7 +30,7 @@ url:string;
 data:any;
 
 public posterNotAvailable = require("../../posterNotAvailable.jpg");
- constructor(private _appService: appService,private http: Http,private router:Router){}
+ constructor(private _appService: appService,private http: Http,private router:Router,private appService:appService){}
 
 
 
@@ -44,7 +44,8 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
         link
       );
       console.log("links",this.videos);
-      this.url=   `http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
+     
+      this.url=   `http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${this.appService.pageNumber}`;
      }
     this.http.get(this.url)
     .map((res: Response) => res.json())
