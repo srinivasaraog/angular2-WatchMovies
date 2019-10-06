@@ -2,34 +2,25 @@
 <div *ngIf="toggle" class="boxed">
 
   <div class="title_selectedmovie">
-    <h2 class="entry_title">{{data[0].movieName}} HDRip Full Movie Watch Online Free</h2>
-
-   <p class="fadeout">Movie type <span *ngFor="let gener of genres" >  {{gener}}</span></p>
-
-
+    <h2 class="entry_title">{{item.movieName}} HDRip Full Movie Watch Online Free</h2>
  </div>
-<hr/>
-  <div>
+  <hr/>
+
           <div class="title" >
             <strong class="color">
-              <img *ngIf="item.movieImageURL !==null" class="img" src='{{data[0].movieImageURL}}'>
-              <img *ngIf="item.movieImageURL ===null" class="img" src='{{posterNotAvailable}}'>
+              <img *ngIf="item.movieImageURL" class="img" src='{{item.movieImageURL}}'>
+              <img *ngIf="!item.movieImageURL" class="img" src='{{posterNotAvailable}}'>
             </strong>
           </div>
           
-          <div innerHTML="{{data[0].movieDescription}}"></div>
-        
-          
+          <div innerHTML="{{item.movieDescription}}"></div>
 
 
-
-  </div>
   <div class="top">
      <div *ngFor="let video of videos">
 
-       <p class="title_movie">{{video}} Watch Online</p>
-
-       <a class="path" target="_blank" href="{{video}}">{{item.title}} Watch Online – {{video.site}} </a>
+       <p class="title_movie"> Watch Online at {{video.name}}</p>
+       <a class="path" target="_blank" href="{{video.link}}">{{item.movieName}} Telugu  Movie Watch Online Free *Rip File* </a>
      </div>
   </div>
 </div>

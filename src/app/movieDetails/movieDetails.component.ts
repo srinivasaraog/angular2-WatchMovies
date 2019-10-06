@@ -18,16 +18,15 @@ import 'rxjs/add/operator/map';
 })
 export class MovieDetailsComponent implements OnInit {
 
-userSearch:string;
-movieList_error:boolean=false;
-movieList:any;
 toggle:boolean;
 item:any;
-torrents:any;
-genres:any;
-videos:any;
-url:string;
-data:any;
+videos:[{
+  'name':'',
+  'link':''
+  }
+]  
+
+name:any;
 
 public posterNotAvailable = require("../../posterNotAvailable.jpg");
  constructor(private _appService: appService,private http: Http,private router:Router,private appService:appService){}
@@ -35,32 +34,23 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
 
 
  ngOnInit() {
-     this.item=this._appService.item;
-     this.toggle=this._appService.toggle;
-  
-
+     this.item=this._appService.item; 
+     this.toggle = this._appService.toggle
      if(this.item){
-    this.videos = this.item.movieLinks.split(';').map(link => 
-        link
-      );
+      this.videos = this.item.movieLinks.split(';') && this.item.movieLinks.split(';').map(function(link:any,index:any){ 
+           let str =link;
+           let key = str.indexOf('.com');
+           let name=str.slice(8,key);
+          return {link:link, name:name}; 
+           
+        });
+      
       console.log("links",this.videos);
-     
-      this.url=   `http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${this.appService.pageNumber}`;
      }
-    this.http.get(this.url)
-    .map((res: Response) => res.json())
-    .subscribe(
-      data => { this.data = data.payload ? data.payload.filter((movie)=>{
-                                  return  (movie.movieName === this.item.movieName)
-                                  }):'';
-    },
-      err => { this.movieList_error = true }
-       );
-    
+      
     this._appService.cast.subscribe(
          movie=> {!this._appService.toggle?this.router.navigate(['/home']):null}
-       );
-
+    );
  }
 
  }

@@ -1,10 +1,14 @@
 
-.search{
-
-  width: 22%;
-  float: right;
-  margin:auto;
+.Search{
+   padding-bottom: 40px;
+   
+   justify-content: flex-end;
 }
 .heading{
   color: #cccfd7;
+}
+
+.display{
+  display: flex;
+  flex-direction: column
 }

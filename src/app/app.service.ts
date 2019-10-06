@@ -16,6 +16,8 @@ export class appService {
   url: string;
   id:string;
   pageNumber:any=1;
+  data:any;
+  selectedMovie:any;
 
 
   /* About behaviour vs regular subject with observable
@@ -51,12 +53,13 @@ export class appService {
     this.title = title;
 
 
-    const movieService = (url) => {
-     
+    const movieService = (url) => {     
       console.log(this.title)
       return this.http.get(url)
         .map((res: Response) => res.json())
     }
+
+
     if(this.title){
     if (this.title.indexOf("home")===0) {
        this.setValue('');
@@ -89,19 +92,11 @@ export class appService {
         const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Geners/page/${id}`;
       return movieService(url);
     }else if(this.title.indexOf("Search")=== 0 ){
+      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`
+    }else if(this.title.indexOf("Dvdrip")=== 0 ){
       const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
-    } else {
-      
-      //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-       const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
-      return movieService(url);
     }
-  }else{
-   
-  //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-    const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`;
-  return movieService(url);
   }
 
 
@@ -136,6 +131,13 @@ export class appService {
   }
   public getDecPageNumber() {
     return this.pageNumber;
+  }
+  public setSelectedMovie(selectedMovie){
+    this.selectedMovie = selectedMovie;
+  }
+  
+  public getSelectedMovie(){
+     return this.selectedMovie ;
   }
 
 }

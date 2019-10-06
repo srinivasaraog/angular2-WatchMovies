@@ -1,5 +1,5 @@
 <div *ngIf="!toggle" class="boxed">
-  <h2 class="featured faded ">{{title}} </h2>
+  <h2 class="featured faded ">Watch Movies </h2>
 <ul>
  <li *ngFor="let movie of (movieList | search:userSearch)" class="col-md-3" >
 
@@ -17,8 +17,8 @@
 </ul>
 
 <div class="faded flex-container col-md-12">
-  <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]"  (click)="sortIncMovieList()"><<Previous</a>
-  <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" *ngIf="pageNumber > 1"  (click)="sortDecMovieList()">Next>></a>
+  <a class="pagination_left" href="#" [routerLink]="['page',pageNumber]"  (click)="sortIncMovieList()"><<Old Releases</a>
+  <a class="pagination_right" href="#" [routerLink]="['page',pageNumber]" *ngIf="pageNumber > 1"  (click)="sortDecMovieList()">New Releases>></a>
 </div>
 
 </div>

@@ -23,11 +23,9 @@ ngOnInit(){
 }
 
 search(moviename){
-
      this._appService.setToggle(false);
      this._appService.setValue(moviename);
      this.router.navigate(['/Search'])
-
 }
 
 

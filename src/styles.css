@@ -24,9 +24,12 @@ body{
   background: #202228;
 }
 .container{
-  margin: 0 auto;
-width: 100%
+  margin: auto;
+  width: 100%
 }
 .contain{
        zoom: 1;
+}
+.nopadding{
+  padding: 0;
 }
