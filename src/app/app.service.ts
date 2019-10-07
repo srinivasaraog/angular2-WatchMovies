@@ -18,7 +18,7 @@ export class appService {
   pageNumber:any=1;
   data:any;
   selectedMovie:any;
-
+  
 
   /* About behaviour vs regular subject with observable
   BehaviorSubject is a type of subject, a subject is a special type of observable so you can subscribe to messages like any other observable.
@@ -89,7 +89,8 @@ export class appService {
         const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Geners/page/${id}`;
       return movieService(url);
     }else if(this.title.indexOf("Search")=== 0 ){
-      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`
+      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/search/${this.moviename}`;
+      return movieService(url);
     }else if(this.title.indexOf("Dvdrip")=== 0 ){
       const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);

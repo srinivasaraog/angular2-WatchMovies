@@ -40,7 +40,6 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
 
  }
  sortIncMovieList(movie){
-  this.router.navigate([`home/page/${this.pageNumber}`]);
    this._appService.setpageNumber(this.pageNumber);
    this.pageNumber=this._appService.pageNumber;
    this.movieService();

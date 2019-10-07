@@ -14,10 +14,8 @@ import { Router } from '@angular/router';
    movie:string;
 
 constructor(private _appService: appService,private router:Router){
-
-
-
 }
+
 ngOnInit(){
 
 }
@@ -26,8 +24,7 @@ search(moviename){
      this._appService.setToggle(false);
      this._appService.setValue(moviename);
      if(moviename){
-      this.router.navigate([`Search/${moviename}`])
-
+      this.router.navigate([`Search`])
      }else{
       this.router.navigate(['/home'])
      }
@@ -35,9 +32,9 @@ search(moviename){
 }
 
 onSearchChange(){
-  if(!this.movie){
+  
     this.router.navigate(['/home'])
-  }
+  
   
 }
 
