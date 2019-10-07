@@ -84,9 +84,6 @@ export class appService {
     } else if (this.title.indexOf("Malayalam")=== 0) {
         const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Malayalam/page/${id}`;
       return movieService(url);
-    } else if (this.title.indexOf("other")=== 0 ) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/other/page/${id}`;
-      return movieService(url);
     } else if (this.title.indexOf("Geners")=== 0 ) {
       //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
         const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Geners/page/${id}`;
@@ -94,6 +91,9 @@ export class appService {
     }else if(this.title.indexOf("Search")=== 0 ){
       const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu`
     }else if(this.title.indexOf("Dvdrip")=== 0 ){
+      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
+      return movieService(url);
+    }else{
       const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
     }

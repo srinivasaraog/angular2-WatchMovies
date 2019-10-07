@@ -40,12 +40,14 @@ public posterNotAvailable = require("../../posterNotAvailable.jpg");
 
  }
  sortIncMovieList(movie){
+  this.router.navigate([`home/page/${this.pageNumber}`]);
    this._appService.setpageNumber(this.pageNumber);
    this.pageNumber=this._appService.pageNumber;
    this.movieService();
  }
  movieService=()=>{
-  this.title=this.router.url.replace('/',"");
+  let x =this.router.url;
+  this.title =x.replace('/',"");
   this._appService.getApp(this.title,this.pageNumber).subscribe(
    data => { this.movieList = data.payload},
    err => { this.movieList_error = true }

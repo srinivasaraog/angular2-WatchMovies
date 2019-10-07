@@ -77,7 +77,9 @@ const appRoutes: Routes = [
    ]
      },
      { path: 'Search', component: MainComponent,
-    
+     children:[
+      {path: ':id', component: MainComponent}
+    ]
     },
    { path: ':id',component: MovieDetailsComponent},
    { path: '', redirectTo: '/home',pathMatch:'full' }

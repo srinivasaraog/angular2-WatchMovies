@@ -9,7 +9,7 @@ export class FormatPipe implements PipeTransform {
     transform(value, currentYear): any {
 
           const movieFilter=(currentYear)=>{
-              return  value.filter((movie) => {
+              return  value && value.filter((movie) => {
 
                         return  null//movie.release_date.substring(0,4)==currentYear;
 

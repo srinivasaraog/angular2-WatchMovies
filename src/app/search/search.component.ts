@@ -25,7 +25,20 @@ ngOnInit(){
 search(moviename){
      this._appService.setToggle(false);
      this._appService.setValue(moviename);
-     this.router.navigate(['/Search'])
+     if(moviename){
+      this.router.navigate([`Search/${moviename}`])
+
+     }else{
+      this.router.navigate(['/home'])
+     }
+     
+}
+
+onSearchChange(){
+  if(!this.movie){
+    this.router.navigate(['/home'])
+  }
+  
 }
 
 
