@@ -66,12 +66,22 @@ const appRoutes: Routes = [
      {path: 'page/:id', component: MainComponent}
    ]
     },
-   { path: 'Geners', component: MainComponent,
-   children:[
-     {path: 'page/:id', component: MainComponent}
-   ]
-    },
-   { path: 'other', component: MainComponent,
+    { path: 'Punjabi', component: MainComponent,
+    children:[
+      {path: 'page/:id', component: MainComponent}
+    ]
+     },
+     { path: 'Bigboss', component: MainComponent,
+    children:[
+      {path: 'page/:id', component: MainComponent}
+    ]
+     },
+     { path: 'Sports', component: MainComponent,
+    children:[
+      {path: 'page/:id', component: MainComponent}
+    ]
+     },
+   { path: 'Other', component: MainComponent,
    children:[
      {path: 'page/:id', component: MainComponent}
    ]
