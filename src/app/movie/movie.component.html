@@ -3,12 +3,12 @@
 <ul class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
  <li class="col-md-4 col-sm-4 col-xs-6 col-lg-3" *ngFor="let movie of (movieList | search:userSearch)">
 
- <div class="">
+ <div class="padding-image">
 
     <div  class="title"><a href="#" [routerLink]="['',movie.movieName]" (click)="movieDetails(movie)">
       <strong class="color">
-        <img *ngIf="movie.movieImageURL !==null" class="img" src='{{movie.movieImageURL}}'>
-        <img *ngIf="movie.movieImageURL ===null" class="img" src='{{posterNotAvailable}}'>
+        <img *ngIf="movie.movieImageURL !==null" class="img-fluid img" src='{{movie.movieImageURL}}'>
+        <img *ngIf="movie.movieImageURL ===null" class="img-fluid img" src='{{posterNotAvailable}}'>
     </strong></a></div>
      <div class="text">  {{movie.movieName }} ({{movie.releaseDate }})</div>
  </div>

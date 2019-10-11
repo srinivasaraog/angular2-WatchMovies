@@ -63,39 +63,39 @@ export class appService {
     if(this.title){
     if (this.title.indexOf("home")===0) {
        this.setValue('');
-      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
+      const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Featured")=== 0) {      
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("HollyWood")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/HollyWood/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/HollyWood/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("BollyWood")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/hindi/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/hindi/page/${id}`;
 
       return movieService(url);
     } else if (this.title.indexOf("Tamil")=== 0 ) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Tamil/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Tamil/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Telugu")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Telugu/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Telugu/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Malayalam")=== 0) {
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Malayalam/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/Malayalam/page/${id}`;
       return movieService(url);
     } else if (this.title.indexOf("Punjabi")=== 0 ) {
       //  const url=  `https://api.themoviedb.org/3/discover/movie?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8&with_original_language=en&page=${id}`;
-        const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/punjabi/page/${id}`;
+        const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/punjabi/page/${id}`;
       return movieService(url);
     }else if(this.title.indexOf("Search")=== 0 ){
-      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/search/${this.moviename}`;
+      const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/search/${this.moviename}`;
       return movieService(url);
     }else if(this.title.indexOf("Bigboss")=== 0 ){
-      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/search/boss`;
+      const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/search/boss`;
       return movieService(url);
     }else{
-      const url=`http://movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
+      const url=`//movierulz.us-east-2.elasticbeanstalk.com/api/partner/v1/movies/telugu/page/${id}`;
       return movieService(url);
     }
   }

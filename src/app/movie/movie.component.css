@@ -5,14 +5,14 @@ ul{
 }
 .img{
 
-  height: 200px;
-  width: 160px;
+  max-width: 100%;
+  height: auto;
 
 
 }
 .title{
 text-align: center;
-    color: #989eae;
+color: #989eae;
 }
 
 .boxed {
@@ -98,4 +98,7 @@ hr {
 }
 .pagination_right{
   margin-left: auto;
+}
+.padding-image{
+ padding-right: 10px;
 }
