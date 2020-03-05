@@ -27,7 +27,6 @@ url:string;
 movieList_error:boolean;
 name:any;
 
-public posterNotAvailable = require("../../posterNotAvailable.jpg");
  constructor(private _appService: appService,private http: Http,private router:Router,private appService:appService){}
 
 
