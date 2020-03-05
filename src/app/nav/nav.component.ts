@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
 
 selector:'nav',
 templateUrl:'./nav.component.html',
-styleUrls:['/nav.component.css']
+styleUrls:['./nav.component.css']
 
 
 })

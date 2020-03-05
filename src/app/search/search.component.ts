@@ -1,5 +1,6 @@
 import { Component,Input, Output,EventEmitter,OnInit }  from '@angular/core';
 import { appService } from '../app.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,21 +11,31 @@ import { appService } from '../app.service';
 
 })
  export class SearchComponent implements OnInit{
+   movie:string;
 
-constructor(private _appService: appService){
-
-
-
+constructor(private _appService: appService,private router:Router){
 }
+
 ngOnInit(){
 
 }
 
 search(moviename){
-
      this._appService.setToggle(false);
      this._appService.setValue(moviename);
+     if(moviename){
+      this.router.navigate([`Search`])
+     }else{
+      this.router.navigate(['/home'])
+     }
+     
+}
 
+onSearchChange(){
+  
+    this.router.navigate(['/home'])
+  
+  
 }
 
 

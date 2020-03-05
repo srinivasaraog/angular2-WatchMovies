@@ -1,24 +1,24 @@
 .boxed {
-background-color: #111111;
-border: 0.5px solid #444855;
-overflow: hidden;
-}
-.featured{
-    background: -webkit-gradient( linear, left top, left bottom, color-stop( 1%, #272727 ), color-stop( 100%, #070707 ) );
-    background: -webkit-linear-gradient( top, #272727 1%, #070707 100% );
-    border: 1px solid #444855;
-    border-radius: 7px;
-    margin: 0px 0px;
-    padding: 7px 10px;
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.faded{
-color: #989eae;
-
-}
-
-ul li{
-  text-align: justify;
-}
+  background-color: #111111;
+  border: 0.5px solid #444855;
+  overflow: hidden;
+  }
+  .featured{
+      background: -webkit-gradient( linear, left top, left bottom, color-stop( 1%, #272727 ), color-stop( 100%, #070707 ) );
+      background: -webkit-linear-gradient( top, #272727 1%, #070707 100% );
+      border: 1px solid #444855;
+      border-radius: 7px;
+      margin: 0px 0px;
+      padding: 7px 10px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+  }
+  .faded{
+  color: #989eae;
+  
+  }
+  
+  ul li{
+    text-align: justify;
+  }

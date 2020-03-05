@@ -9,9 +9,9 @@ export class FormatPipe implements PipeTransform {
     transform(value, currentYear): any {
 
           const movieFilter=(currentYear)=>{
-              return  value.filter((movie) => {
+              return  value && value.filter((movie) => {
 
-                        return  movie.release_date.substring(0,4)==currentYear;
+                        return  null//movie.release_date.substring(0,4)==currentYear;
 
 
               });
@@ -21,7 +21,7 @@ export class FormatPipe implements PipeTransform {
         if (name !== undefined && currentYear!=='') {
 
             // filter users, users which match and return true will be kept, false will be filtered out
-            return  current.length>0 ? current:movieFilter(currentYear-1);
+            return movieFilter(currentYear-1);
 
 
         }

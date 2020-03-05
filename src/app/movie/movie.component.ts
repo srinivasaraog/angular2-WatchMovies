@@ -10,6 +10,7 @@ import {MovieDetailsComponent} from '../movieDetails/movieDetails.component';
 
 
 
+
 @Component({
   selector: 'movie',
   templateUrl: './movie.component.html',
@@ -31,6 +32,7 @@ title:string;
 pageNumber:any=1;
 id:string="";
 params:any;
+public posterNotAvailable = require("../../posterNotAvailable.jpg");
  constructor(private route: ActivatedRoute, private _appService: appService,private router:Router){}
  movieDetails(movie){
    this._appService.setItem(movie);
@@ -38,13 +40,13 @@ params:any;
 
  }
  sortIncMovieList(movie){
-
    this._appService.setpageNumber(this.pageNumber);
    this.pageNumber=this._appService.pageNumber;
    this.movieService();
  }
  movieService=()=>{
-  this.title=this.router.url.replace('/',"");
+  let x =this.router.url;
+  this.title =x.replace('/',"");
   this._appService.getApp(this.title,this.pageNumber).subscribe(
    data => { this.movieList = data.results},
    err => { this.movieList_error = true }
@@ -63,7 +65,6 @@ params:any;
     this._appService.cast.subscribe(
        movie=> {this.userSearch = movie,this.toggle=false}
      );
-
  }
 
  }
