@@ -8,7 +8,7 @@
     <div  class="title"><a href="#" [routerLink]="['',movie.movieName]" (click)="movieDetails(movie)">
       <strong class="color">
         <img *ngIf="movie.poster_path !==null" class="img-fluid img" src='https://image.tmdb.org/t/p/w300/{{movie.poster_path}}'>
-        <img *ngIf="movie.poster_path ===null" class="img-fluid img" src='{{posterNotAvailable}}'>
+        <img *ngIf="movie.poster_path ===null" class="img-fluid img" src='./posterNotAvailable'>
     </strong></a></div>
      <div class="text">  {{movie.original_title }} ({{movie.release_date }})</div>
  </div>

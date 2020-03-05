@@ -32,7 +32,7 @@ title:string;
 pageNumber:any=1;
 id:string="";
 params:any;
-public posterNotAvailable = require("../../posterNotAvailable.jpg");
+
  constructor(private route: ActivatedRoute, private _appService: appService,private router:Router){}
  movieDetails(movie){
    this._appService.setItem(movie);
