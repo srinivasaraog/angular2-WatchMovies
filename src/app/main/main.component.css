@@ -1,43 +1,34 @@
 .page-wrap {
-    margin: 0 auto;
-    width: 1000px;
+  margin: 0 auto;
+  width: 1000px;
 }
 .main{
 
 max-width: 75%;
 margin: 20px 0 20px 0px;
 padding: 0 0px;
-background: #red;
 border-radius: 0 0 10px 10px;
 }
-.img{
 
-  height: 300px;
-  width: 200px;
-
-
-}
 .title{
 
-  color:white;
+color:white;
 }
 .top{  top:10px;}
 
 footer{
-  color: #989eae;
-  text-align: center;
-  font-size: small;
-  padding: 50px;
+color: #989eae;
+text-align: center;
+font-size: small;
+padding: 50px;
 }
 .main-content{
-  width: 75%;
- float:left;
+width: 75%;
+float:left;
 
 }
 .recent-content{
-  width: 25%;
-  float:left;
-
-
+width: 25%;
+float:left;
 
 }

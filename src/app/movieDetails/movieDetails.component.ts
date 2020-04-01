@@ -1,14 +1,8 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, OnDestroy } from '@angular/core';
 import { appService } from '../app.service';
-import {SearchPipe}    from '../app.objectfilter';
 import { Router } from '@angular/router';
-import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
 
-
-import { Observable } from 'rxjs/Rx';
-
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 
@@ -21,41 +15,40 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 
 })
-export class MovieDetailsComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit,OnDestroy {
 
-userSearch:string;
-movieList_error:boolean=false;
-movieList:any;
 toggle:boolean;
 item:any;
-torrents:any;
-genres:any;
-videos:any;
 url:string;
+videos:any;
 
-
- constructor(private _appService: appService,private http: Http,private router:Router){}
+name:any;
+ constructor(private _appService: appService,private http: HttpClient,private router:Router,private appService:appService){}
 
 
 
  ngOnInit() {
-     this.item=this._appService.item;
-     this.toggle=this._appService.toggle;
+  this.item=this._appService.item;
+  this.toggle=this._appService.toggle;
 
 
-     if(this.item){
-      this.url=   `http://api.themoviedb.org/3/movie/${this.item.id}/videos?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8`;
-     }
-    this.http.get(this.url)
-    .map((res: Response) => res.json())
-    .subscribe(
-      data => { this.videos = data.results },
-      err => { this.movieList_error = true }
-       );
+  if(this.item){
+   this.url=   `http://api.themoviedb.org/3/movie/${this.item.id}/videos?api_key=0d24ff1a5c9fe0f2899eb56b51e842c8`;
+  }
+  this.http.get(this.url)
+  .pipe().subscribe((data:any)=>{
+    this.videos = data.results 
+    
+  });
   console.log(this.videos);
-    this._appService.cast.subscribe(
-         movie=> {!this._appService.toggle?this.router.navigate(['/home']):null}
-       );
+  this._appService.cast.subscribe(
+        movie=> {!this._appService.toggle?this.router.navigate(['/home']):null}
+      );
+  }
+
+ ngOnDestroy(){
+
+  this._appService.setToggle(false);
 
  }
 

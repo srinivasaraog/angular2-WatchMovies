@@ -11,8 +11,8 @@ ul{
 
 }
 .title{
-text-align: center;
-    color: #989eae;
+  text-align: center;
+  color: #989eae;
 }
 
 .boxed {
@@ -36,7 +36,7 @@ padding-left: 10px;
 }
 .path{
 
-  color:blue;
+  color:yellow;
   padding-left: 10px;
 }
 .top{

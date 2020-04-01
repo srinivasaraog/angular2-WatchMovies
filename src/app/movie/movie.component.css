@@ -5,14 +5,14 @@ ul{
 }
 .img{
 
+  width: 150px;
   height: 200px;
-  width: 160px;
 
 
 }
 .title{
 text-align: center;
-    color: #989eae;
+color: #989eae;
 }
 
 .boxed {
@@ -21,12 +21,12 @@ border: 0.5px solid #444855;
 overflow: hidden;
 }
 .text{
-text-align: center;
-height: 30px;
-font-size: 12px;
-margin: 0 0 0.8em 0;
-color: #989eae;
-font-weight: bold;
+  text-align: center; 
+  height: 20px; 
+  font-size: 12px; 
+  color: #989eae;
+  font-weight: bold;
+ 
 }
 
 .faded{
@@ -91,11 +91,14 @@ hr {
 }
 .flex-container{
   display: flex;
-  top:10px;
+  
 }
 .pagination_left{
-
+  margin-right: auto;
 }
 .pagination_right{
   margin-left: auto;
+}
+.padding-image{
+ padding: 10px;
 }

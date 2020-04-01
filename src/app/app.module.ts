@@ -10,8 +10,8 @@ import {NavComponent} from './nav/nav.component';
 import {RecentComponent} from './recent/recent.component';
 import {MainComponent} from './main/main.component';
 import {MovieComponent} from './movie/movie.component';
-import {SearchPipe}    from './app.objectfilter';
-import { HttpModule }    from '@angular/http';
+import {SearchPipe, Safe}    from './app.objectfilter';
+import { HttpClientModule } from '@angular/common/http';
 import {FormatPipe}    from './recent/recent.filter';
 import { RouterModule, Routes } from '@angular/router';
 import {MovieDetailsComponent} from './movieDetails/movieDetails.component';
@@ -19,8 +19,8 @@ import {MovieDetailsComponent} from './movieDetails/movieDetails.component';
 const appRoutes: Routes = [
    { path: 'home', component: MainComponent,
      children:[
-       {path: 'page/:id', component: MainComponent},
-       {path: '', redirectTo: '/home',pathMatch:'full' }
+       {path: 'page/:id', component: MainComponent}
+
      ]
 
     },
@@ -58,7 +58,7 @@ const appRoutes: Routes = [
     },
    { path: 'Malayalam', component: MainComponent,
     children:[
-     {path: 'page/:id', component: MainComponent}
+     {path: 'page/:id', component: MainComponent,}
    ]
     },
    { path: 'Dvdrip', component: MainComponent,
@@ -66,16 +66,29 @@ const appRoutes: Routes = [
      {path: 'page/:id', component: MainComponent}
    ]
     },
-   { path: 'Geners', component: MainComponent,
-   children:[
-     {path: 'page/:id', component: MainComponent}
-   ]
-    },
-   { path: 'other', component: MainComponent,
+    { path: 'Punjabi', component: MainComponent,
+    children:[
+      {path: 'page/:id', component: MainComponent}
+    ]
+     },
+     { path: 'Bigboss', component: MainComponent,
+    children:[
+      {path: 'page/:id', component: MainComponent}
+    ]
+     },
+     { path: 'Sports', component: MainComponent,
+    children:[
+      {path: 'page/:id', component: MainComponent}
+    ]
+     },
+   { path: 'Other', component: MainComponent,
    children:[
      {path: 'page/:id', component: MainComponent}
    ]
      },
+     { path: 'Search', component: MainComponent,
+     
+    },
    { path: ':id',component: MovieDetailsComponent},
    { path: '', redirectTo: '/home',pathMatch:'full' }
 
@@ -86,11 +99,11 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    AppComponent,HeaderComponent,SearchComponent,NavComponent,MainComponent,RecentComponent,SearchPipe,FormatPipe,
+    AppComponent,HeaderComponent,SearchComponent,NavComponent,MainComponent,RecentComponent,SearchPipe,FormatPipe,Safe,
     MovieComponent,MovieDetailsComponent
   ],
   imports: [
-    BrowserModule,FormsModule,HttpModule,RouterModule.forRoot(appRoutes)
+    BrowserModule,FormsModule,HttpClientModule,RouterModule.forRoot(appRoutes)
   ],
   providers: [appService],
   bootstrap: [AppComponent]

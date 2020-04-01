@@ -1,16 +1,21 @@
-
 <div *ngIf="toggle" class="boxed">
 
   <div class="title_selectedmovie">
     <h2 class="entry_title">{{item.title}} ({{item.year}}) HDRip Full Movie Watch Online Free</h2>
 
-   <p class="fadeout">Movie type <span *ngFor="let gener of genres" >  {{gener}}</span></p>
+   <!-- <p class="fadeout">Movie type <span *ngFor="let gener of genres" >  {{gener}}</span></p> -->
 
 
  </div>
 <hr/>
-  <div>
-          <div class="title" ><strong class="color"><img class="img" src='https://image.tmdb.org/t/p/w300/{{item.poster_path}}'></strong></div>
+      <div>
+          <div class="title" >
+            
+              <strong class="color">   
+              <img *ngIf="item.poster_path !==null" class="img" src='https://image.tmdb.org/t/p/w300/{{item.poster_path}}'>
+              <img *ngIf="!item.poster_path" class="img" src="assets/posterNotAvailable.jpg">
+            </strong>
+          </div>
           <div class="faded">   Directed by:</div>
           <div class="faded">  Genres :{{item.year }}</div>
 
