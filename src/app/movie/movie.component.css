@@ -5,8 +5,13 @@ ul{
 }
 .img{
 
+<<<<<<< HEAD
   width: 150px;
   height: 200px;
+=======
+  max-width: 100%;
+  height: auto;
+>>>>>>> 4905c41a78b1d280538580d1578c34be329c50ea
 
 
 }
@@ -100,5 +105,9 @@ hr {
   margin-left: auto;
 }
 .padding-image{
+<<<<<<< HEAD
  padding: 10px;
+=======
+ padding-right: 10px;
+>>>>>>> 4905c41a78b1d280538580d1578c34be329c50ea
 }

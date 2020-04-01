@@ -39,7 +39,11 @@ params:any;
    this._appService.setToggle(true);
 
  }
+<<<<<<< HEAD
  sortIncMovieList(){
+=======
+ sortIncMovieList(movie){
+>>>>>>> 4905c41a78b1d280538580d1578c34be329c50ea
    this._appService.setpageNumber(this.pageNumber);
    this.pageNumber=this._appService.pageNumber;
    this.movieService();
@@ -47,12 +51,19 @@ params:any;
  movieService=()=>{
   let x =this.router.url;
   this.title =x.replace('/',"");
+<<<<<<< HEAD
   this._appService.getApp(this.title,this.pageNumber).subscribe((data:any)=>{
 
     this.movieList = data.results;
   });
 
  
+=======
+  this._appService.getApp(this.title,this.pageNumber).subscribe(
+   data => { this.movieList = data.results},
+   err => { this.movieList_error = true }
+    );
+>>>>>>> 4905c41a78b1d280538580d1578c34be329c50ea
 }
  sortDecMovieList(){
 
